@@ -3,7 +3,7 @@
 # Author: Aitor Eler Lucas
 
 import sys
-from Tokenizer import Tokenizer
+from Lexer import Lexer
 from Parser import Parser
 
 def main():
@@ -11,7 +11,7 @@ def main():
     if len(sys.argv) != 2:
         print("Usage: python Calc.py <input_file>")
         return
-    
+
     input_file = sys.argv[1]
     
     try:
@@ -22,23 +22,28 @@ def main():
         return
     
     # Lexical analysis
-    print("Tokenizing input file...")
-    tokenizer = Tokenizer(code)
-    tokens = tokenizer.tokenize()
+    print("\n∴ Tokenizing input file...")
+    lexer = Lexer(code)
+    tokens = lexer.tokenize()
     
-    print("\nGenerated tokens:")
+    print("\nGENERATED TOKENS:")
+    print("╔══════════════════════════╤═══════════╤═════╤══════╗")
+    print("║        TOKEN TYPE        │   VALUE   │ LIN │ POSI ║")
+    print("╟──────────────────────────┼───────────┼─────┼──────╢")
     for token in tokens:
         print(token)
-    
+    print("╚══════════════════════════╧═══════════╧═════╧══════╝")
+
     # Syntax analysis
-    print("\nValidating syntax...")
+    print("\n∴ Validating syntax...")
     parser = Parser(tokens)
     is_valid = parser.parse()
     
+    print("\nSYNTAX VALIDATION:")
     if is_valid:
-        print("\nSYNTAX VALIDATION: Input file syntax is correct")
+        print("Input file syntax is correct\n")
     else:
-        print("\nSYNTAX VALIDATION: Input file contains syntax errors")
+        print("Input file contains syntax errors\n")
 
 if __name__ == "__main__":
     main()
