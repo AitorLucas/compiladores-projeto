@@ -101,7 +101,7 @@ Arquivos de teste incluídos no repositório:
 
 ## 📄 Licença
 
-Uso educacional apenas.
+Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
 
 ---
 

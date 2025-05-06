@@ -1,0 +1,63 @@
+digraph DFA {
+    rankdir=LR;
+    size="10,8";
+
+    // Default node style
+    node [shape=circle];
+
+    // Final states
+    NumberFinal [shape=doublecircle];
+    CompFinal [shape=doublecircle];
+    KeywordOrIdentFinal [shape=doublecircle];
+    ParenOpen [shape=doublecircle];
+    ParenClose [shape=doublecircle];
+    Operator [shape=doublecircle];
+    Newline [shape=doublecircle];
+    Error [shape=doublecircle];
+
+    // Start state
+    Start [shape=circle];
+    fake_start [label="", shape=none];
+    fake_start -> Start;
+
+    // Transitions
+    Start -> Whitespace [label="whitespace"];
+    Whitespace -> Start;
+
+    Start -> Newline [label="\\n"];
+    Start -> CommentStart [label="#"];
+    CommentStart -> InComment [label="not \\n"];
+    InComment -> InComment [label="not \\n"];
+    InComment -> Start [label="\\n"];
+
+    Start -> ParenOpen [label="("];
+    Start -> ParenClose [label=")"];
+    Start -> Operator [label="+ - * / % ^ |"];
+    Start -> CompStart [label="< > = !"];
+    CompStart -> EqualAfterComp [label="="];
+    EqualAfterComp -> CompFinal;
+    CompStart -> CompFinal;
+
+    Start -> Minus [label="-"];
+    Minus -> Digit [label="digit"];
+    Minus -> Dot [label="."];
+
+    Start -> Dot [label="."];
+    Dot -> DigitAfterDot [label="digit"];
+
+    Start -> Digit [label="digit"];
+    Digit -> Digit [label="digit"];
+    Digit -> DotInNumber [label="."];
+    DotInNumber -> DigitAfterDot [label="digit"];
+    DigitAfterDot -> DigitAfterDot [label="digit"];
+    DigitAfterDot -> NumberFinal;
+    Digit -> NumberFinal;
+    Minus -> NumberFinal;
+
+    Start -> Letter [label="a-zA-Z"];
+    Letter -> Ident [label="a-zA-Z0-9_"];
+    Ident -> Ident [label="a-zA-Z0-9_"];
+    Ident -> KeywordOrIdentFinal;
+
+    Start -> Error [label="other"];
+}
