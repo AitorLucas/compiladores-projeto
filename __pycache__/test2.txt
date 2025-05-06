@@ -1,5 +1,0 @@
-(5 RES)
-((10 2 /) MEM)
-((MEM) 5 +)
-(if (5 3 >) then (10) else (20))
-(for (i 1 10) (i MEM))
