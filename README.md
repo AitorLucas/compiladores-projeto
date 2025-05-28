@@ -42,9 +42,9 @@ Este projeto implementa um analisador léxico e sintático para uma linguagem ba
 
 • SOURCES
 
-- `ASTNode`: 
+- `ASTNode`: Estrutura de nó para a Árvore Sintática Abstrata (AST).
 - `Calc`: Ponto de entrada do programa, que executa o lexer e o parser com um arquivo de entrada.
-- `Diagram`: 
+- `Diagram`: Gera diagramas das árvores sintáticas em formato gráfico.
 - `Lexer`: Classe responsável por transformar o código-fonte em tokens.
 - `Parser`: Classe que verifica a estrutura sintática dos tokens.
 - `TokenType`: Enumeração com todos os tipos de tokens.
