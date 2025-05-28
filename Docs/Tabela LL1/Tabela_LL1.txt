@@ -1,4 +1,4 @@
-GosTabela LL(1) - Analisador Sintático LL(1)
+Tabela LL(1) - Analisador Sintático LL(1)
 
 ╔═══════════════╤════════════╤══════════════════════════════════════════════════════╗
 ║ Não-terminal  │ Terminal   │ Produção                                             ║

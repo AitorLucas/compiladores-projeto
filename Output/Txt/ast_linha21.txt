@@ -1,0 +1,8 @@
+└── FOR : for
+    ├── NUMBER : 1
+    ├── NUMBER : 10
+    └── ARITHMETIC_OP : *
+        ├── ARITHMETIC_OP : +
+        │   ├── NUMBER : 2
+        │   └── NUMBER : 3
+        └── NUMBER : 4

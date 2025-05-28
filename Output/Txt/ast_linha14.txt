@@ -1,0 +1,6 @@
+└── ARITHMETIC_OP : +
+    ├── MEM : MEM
+    │   └── NUMBER : 3
+    └── ARITHMETIC_OP : +
+        ├── NUMBER : 4
+        └── NUMBER : 3

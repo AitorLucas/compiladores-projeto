@@ -1,6 +1,6 @@
 digraph AST {
-  node0 [label="TokenType.ARITHMETIC_OP\n/"];
-  node1 [label="TokenType.NUMBER\n9"];
+  node0 [label="TokenType.ARITHMETIC_OP\n^"];
+  node1 [label="TokenType.NUMBER\n3"];
   node0 -> node1;
   node2 [label="TokenType.NUMBER\n3"];
   node0 -> node2;

@@ -23,18 +23,15 @@
 ( 5 6 + - )  # erro: operador '-' sem operandos suficientes
 #( for ( 1 10 ) ( 2 3 + 4 5 + * ) )  # erro: falta parêntese fechando o corpo do for
 ( if ( 10 < 5 ) then ( 3 4 + ) else ( 5 6 + )  # erro: falta parêntese fechando expressão if completa
-#( ( 5 6 + ) ( 7 8 + ) * )  # erro: falta operador entre as duas expressões
 ( 10 20 + MEM RES )  # erro: sequência inválida MEM seguida de RES
 ( for ( 1 a ) ( 2 3 + ) )  # erro: caractere inválido 'a' em cabeçalho do for
 ( if ( 10 > 5 ) then ( 3 4 + ) else ( 5 6 + ) ) )  # erro: parêntese extra no final da expressão
 #( 7 8 9 + * 10 + )  # erro: operador '*' aplicado em pilha incorreta (só um erro, é difícil interpretar)
-#( ( 10 5 - ) ( 2 3 + ) + )  # erro: falta operador entre as duas expressões dentro dos parênteses
 ( 3 4 + ( 5 6 + ) ) )  # erro: parêntese extra fechando expressão
 ( ( 4 5 + ) ( 6 7 + ) ) *  # erro: operador '*' fora de lugar
 ( if ( 10 >= 5 ) then ( ( 3 4 + ) ) else )  # erro: else sem expressão depois
 ( ( 10 20 + ) ( 30 40 + ) 50 + )  # erro: falta operador entre parênteses e número 50
 ( for ( 1 5 ) ( 2 3 + ( 4 5 + ) )  # erro: falta parêntese fechando o for
-
 ( 10 20 + ( MEM ) RES )  # erro: RES após expressão incorreta
 ( ( 3 4 + ) 5 * 6 )  # erro: número 6 solto sem operador
 ( ( 3 4 + ) ( 5 6 + ) + 7 ) )  # erro: parêntese extra no final

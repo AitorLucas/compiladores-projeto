@@ -1,0 +1,7 @@
+└── ARITHMETIC_OP : +
+    ├── ARITHMETIC_OP : *
+    │   ├── NUMBER : 5
+    │   └── NUMBER : 2
+    └── ARITHMETIC_OP : +
+        ├── NUMBER : 6
+        └── NUMBER : 3

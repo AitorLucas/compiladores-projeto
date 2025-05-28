@@ -90,10 +90,12 @@ class Lexer:
                 while self.current_char is not None and (self.current_char.isdigit() or self.current_char == '.'):
                     if self.current_char == '.':
                         dot_count += 1
-                        if dot_count > 1:
-                            break  # More than one dot = invalid number
                     num_str += self.current_char
                     self.advance()
+
+                if dot_count > 1:
+                    tokens.append(Token(TokenType.ERROR, num_str, start_pos, self.line))
+                    continue
 
                 if not num_str[-1].isdigit():
                     tokens.append(Token(TokenType.ERROR, num_str, start_pos, self.line))

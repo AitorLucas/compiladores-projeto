@@ -1,7 +1,7 @@
 digraph AST {
-  node0 [label="TokenType.ARITHMETIC_OP\n+"];
-  node1 [label="TokenType.MEM\nMEM"];
+  node0 [label="TokenType.ARITHMETIC_OP\n-"];
+  node1 [label="TokenType.NUMBER\n4.5"];
   node0 -> node1;
-  node2 [label="TokenType.NUMBER\n10"];
+  node2 [label="TokenType.NUMBER\n2.5"];
   node0 -> node2;
 }

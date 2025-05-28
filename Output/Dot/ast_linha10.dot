@@ -1,0 +1,5 @@
+digraph AST {
+  node0 [label="TokenType.RES\nRES"];
+  node1 [label="TokenType.NUMBER\n2"];
+  node0 -> node1;
+}

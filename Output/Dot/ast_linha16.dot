@@ -1,0 +1,11 @@
+digraph AST {
+  node0 [label="TokenType.ARITHMETIC_OP\n-"];
+  node1 [label="TokenType.NUMBER\n9"];
+  node0 -> node1;
+  node2 [label="TokenType.ARITHMETIC_OP\n+"];
+  node0 -> node2;
+  node3 [label="TokenType.NUMBER\n3"];
+  node2 -> node3;
+  node4 [label="TokenType.NUMBER\n2"];
+  node2 -> node4;
+}

@@ -1,0 +1,5 @@
+└── ARITHMETIC_OP : *
+    ├── NUMBER : 2.5
+    └── ARITHMETIC_OP : +
+        ├── NUMBER : 1.5
+        └── NUMBER : 0.5

@@ -1,0 +1,5 @@
+digraph AST {
+  node0 [label="TokenType.MEM\nMEM"];
+  node1 [label="TokenType.NUMBER\n10"];
+  node0 -> node1;
+}

@@ -1,0 +1,6 @@
+└── FOR : for
+    ├── NUMBER : 1
+    ├── NUMBER : 5
+    └── ARITHMETIC_OP : +
+        ├── NUMBER : 10
+        └── NUMBER : 20

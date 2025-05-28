@@ -1,0 +1,15 @@
+└── ARITHMETIC_OP : |
+    ├── ARITHMETIC_OP : +
+    │   ├── ARITHMETIC_OP : -
+    │   │   ├── NUMBER : 10
+    │   │   └── NUMBER : 4
+    │   └── ARITHMETIC_OP : -
+    │       ├── NUMBER : 10
+    │       └── NUMBER : 4
+    └── ARITHMETIC_OP : +
+        ├── ARITHMETIC_OP : -
+        │   ├── NUMBER : 10
+        │   └── NUMBER : 4
+        └── ARITHMETIC_OP : -
+            ├── NUMBER : 10
+            └── NUMBER : 4
