@@ -7,13 +7,15 @@ from pathlib import Path
 import graphviz
 
 def generate_images_from_dot(dot_dir="Output/Dot", img_dir="Output/Image"):
+    print("\n∴ Generating Diagrams...")
+
     dot_path = Path(dot_dir)
     img_path = Path(img_dir)
     img_path.mkdir(parents=True, exist_ok=True)
 
     dot_files = list(dot_path.glob("*.dot"))
     if not dot_files:
-        print(f"Nenhum arquivo .dot clear em {dot_path}")
+        print(f"\nNo .dot files found in {dot_path}")
         return
 
     for dot_file in dot_files:
@@ -24,9 +26,10 @@ def generate_images_from_dot(dot_dir="Output/Dot", img_dir="Output/Image"):
             graph = graphviz.Source(dot_source)
             graph.format = "png"
             graph.render(filename=img_file.with_suffix('').as_posix(), cleanup=True)
-            print(f"Imagem gerada: {img_file}")
         except Exception as e:
-            print(f"Erro ao gerar imagem para {dot_file}: {e}")
+            print(f"\nError generating image for {dot_file}: {e}")
+
+    print("\nImages generated")
 
 if __name__ == "__main__":
     generate_images_from_dot()

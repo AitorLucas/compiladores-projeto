@@ -6,6 +6,7 @@ import sys
 from pathlib import Path
 from Lexer import Lexer
 from Parser import Parser
+from Diagram import generate_images_from_dot
 
 def main():
     """Main entry point"""
@@ -52,14 +53,17 @@ def main():
     asts = parser.parse()
 
     if asts:
+        print("\n∴ Generating Abstract Syntax Trees...")
         for i, ast in enumerate(asts, 1):
             print(f"\n• AST line {i}:")
             print(ast)
             ast.save_as_text(i)
             ast.save_as_dot(i)
 
+        generate_images_from_dot()
+
 def clean_output_folder():
-    for folder_name in ["Output/Dot", "Output/Txt"]:
+    for folder_name in ["Output/Dot", "Output/Txt", "Output/Image"]:
         folder_path = Path(folder_name)
         if folder_path.exists() and folder_path.is_dir():
             for file_path in folder_path.iterdir():
@@ -69,7 +73,6 @@ def clean_output_folder():
                 except Exception as e:
                     print(f"Erro ao deletar {file_path}: {e}")
         else:
-            # Cria a pasta se não existir
             folder_path.mkdir(parents=True, exist_ok=True)
 
 if __name__ == "__main__":
