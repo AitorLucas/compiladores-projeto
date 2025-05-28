@@ -1,6 +1,6 @@
 # Analisador Léxico e Sintático para Linguagem RPN Personalizada
 
-Este projeto implementa um analisador léxico e sintático para uma linguagem baseada em Notação Polonesa Reversa (Reverse Polish Notation - RPN), com suporte a estruturas condicionais (`if-then-else`), de repetição (`for`) e de recuperacao de dados (`RES e MEM`). 
+Este projeto implementa um analisador léxico e sintático para uma linguagem baseada em Notação Polonesa Reversa (Reverse Polish Notation - RPN), com suporte a estruturas condicionais (`if-then-else`), de repetição (`for`) e de recuperação de dados (`RES e MEM`). 
 
 ---
 
@@ -14,23 +14,46 @@ Este projeto implementa um analisador léxico e sintático para uma linguagem ba
 │   │   ├── First_Follow.md
 │   │   └── First_Follow.txt
 │   ├── Gramatica
-│   │   └── Gramatica_EBNF.txt
+│   │   └── Gramatica.txt
 │   ├── Tabela_LL1
 │   │   ├── Tabela_LL1.md
 │   │   └── Tabela_LL1.txt
-│   └── *.pdfs
+│   └── *.pdf
 ├── Input
 │   └── *.txt
 ├── Output
 │   ├── Dot
-│   │   └── *
-│   └── Txt
-│       └── *
+│   │   └── *.dot
+│   ├── Txt
+│   │   └── *.txt
+│   └── Image
+│       └── *.png
 ├── Sources
-│   └── *.py
+│   ├── ASTNode.py
+│   ├── Calc.py
+│   ├── Diagram.py
+│   ├── Lexer.py
+│   ├── Parser.py
+│   ├── Token.py
+│   └── TokenType.py
 ├── LICENSE
 └── README.md
 ```
+
+• SOURCES
+
+- `ASTNode`: 
+- `Calc`: Ponto de entrada do programa, que executa o lexer e o parser com um arquivo de entrada.
+- `Diagram`: 
+- `Lexer`: Classe responsável por transformar o código-fonte em tokens.
+- `Parser`: Classe que verifica a estrutura sintática dos tokens.
+- `TokenType`: Enumeração com todos os tipos de tokens.
+- `Token`: Classe que representa um token com tipo, valor e posição no código.
+
+• DOCS
+- `Gramática`: Descreve a gramática da linguagem em EBNF.
+- `FirstFollow`: Tabelas dos conjuntos FIRST e FOLLOW para cada não-terminal.
+- `Tabela_LL1`: Tabela de análise sintática LL(1) baseada na gramática.
 
 ---
 
@@ -46,15 +69,6 @@ O analisador realiza:
 
 ---
 
-## 🧱 Estrutura do Projeto
-
-- `TokenType`: Enumeração com todos os tipos de tokens.
-- `Token`: Classe que representa um token com tipo, valor e posição no código.
-- `Lexer`: Classe responsável por transformar o código-fonte em tokens.
-- `Parser`: Classe que verifica a estrutura sintática dos tokens.
-- `main()`: Ponto de entrada do programa, que executa o lexer e o parser com um arquivo de entrada.
-
----
 
 ## 🖥️ Como Usar
 
@@ -65,13 +79,13 @@ O analisador realiza:
 ### Execução
 
 ```bash
-python Calc.py <arquivo_entrada>
+python Sources/Calc.py <arquivo_entrada>
 ```
 
 #### Exemplo: 
 
 ```bash
-python Calc.py test1.txt
+python Sources/Calc.py Input/test1.txt
 ```
 
 ---
@@ -94,10 +108,9 @@ Tal que:
 ```
 
 - Loops `for`:
-    - (for (variavel start end) (...))
+    - (for (start end) (...))
 ```
 Tal que:
-    'variavel' é o nome da variavel que será utilizada dentro do loop
     start é um número inteiro do início do loop
     end é um número inteiro do final do loop
     ... é um bloco de expressão onde está disponível a 'variavel'
