@@ -1,2 +1,51 @@
-#(if (5 3 >) then (10) else (20)
-#(if (5 3 >) then (10))
+( if ( 10 > ) then ( 20 ) else ( 30 ) )  # erro: expressão condicional incompleta no if
+( for ( 1 ) ( 5 ) ( ( 1 2 + ) ) )  # erro: falta um número no cabeçalho do for
+( if ( 10 >= 5 ) then 20 else ( ) )  # erro: bloco else vazio
+( 10 20 + - )  # erro: operador '-' sem operandos suficientes
+#( MEM 10 + )  # erro: uso incorreto do MEM, esperando só MEM ou N MEM
+( if ( 10 < 5 ) then ( 20 ) else ( 30 )  # erro: falta parêntese de fechamento
+( 12..34 + 56 )  # erro: número mal formado com dois pontos
+( 5 + * 3 )  # erro: operador '*' sem operando antes
+( RES 42 )  # erro: RES usado incorretamente
+( 10 20 + MEM RES )  # erro: sequência inválida MEM RES juntos
+( for ( a 10 ) ( 1 2 + ) )  # erro: token 'a' não numérico em for
+( if ( 10 > 5 ) then ( 20 else ( 30 ) ) )  # erro: falta parêntese após then e else está mal posicionado
+( 5 5 ++ )  # erro: operador inválido '++'
+( 5 5 + ( ) )  # erro: expressão vazia dentro de parênteses
+( if ( ( 10 + 5 ) > 7 ) then ( ( 3 4 + ) 5 * ) else ( 2 3 + 4 * ) )  # erro: falta parêntese fechando expressão interna do then
+( ( 5 6 7 + * 8 9 + ) )  # erro: operador '*' sem operandos suficientes (pilha incompleta)
+( if ( 10 >= 5 ) then ( ( 4 5 + ) ) else ( 6 7 + ) ) )  # erro: parêntese extra no final
+( 12.3.4 5 + )  # erro: número mal formado com dois pontos
+( MEM ( 5 6 + ) RES )  # erro: uso incorreto de RES fora do padrão esperado
+( for ( 1 5 ) ( ( 2 3 + ) ( 4 5 + ) ) )  # erro: falta operador entre as duas expressões dentro do corpo do for
+( if ( 10 < 5 ) then ( 3 4 + ) else ( ) )  # erro: else vazio
+( ( 3 4 + ) ( 5 * ) )  # erro: expressão vazia entre parênteses no meio da operação
+( 5 6 + - )  # erro: operador '-' sem operandos suficientes
+#( for ( 1 10 ) ( 2 3 + 4 5 + * ) )  # erro: falta parêntese fechando o corpo do for
+( if ( 10 < 5 ) then ( 3 4 + ) else ( 5 6 + )  # erro: falta parêntese fechando expressão if completa
+#( ( 5 6 + ) ( 7 8 + ) * )  # erro: falta operador entre as duas expressões
+( 10 20 + MEM RES )  # erro: sequência inválida MEM seguida de RES
+( for ( 1 a ) ( 2 3 + ) )  # erro: caractere inválido 'a' em cabeçalho do for
+( if ( 10 > 5 ) then ( 3 4 + ) else ( 5 6 + ) ) )  # erro: parêntese extra no final da expressão
+#( 7 8 9 + * 10 + )  # erro: operador '*' aplicado em pilha incorreta (só um erro, é difícil interpretar)
+#( ( 10 5 - ) ( 2 3 + ) + )  # erro: falta operador entre as duas expressões dentro dos parênteses
+( 3 4 + ( 5 6 + ) ) )  # erro: parêntese extra fechando expressão
+( ( 4 5 + ) ( 6 7 + ) ) *  # erro: operador '*' fora de lugar
+( if ( 10 >= 5 ) then ( ( 3 4 + ) ) else )  # erro: else sem expressão depois
+( ( 10 20 + ) ( 30 40 + ) 50 + )  # erro: falta operador entre parênteses e número 50
+( for ( 1 5 ) ( 2 3 + ( 4 5 + ) )  # erro: falta parêntese fechando o for
+
+( 10 20 + ( MEM ) RES )  # erro: RES após expressão incorreta
+( ( 3 4 + ) 5 * 6 )  # erro: número 6 solto sem operador
+( ( 3 4 + ) ( 5 6 + ) + 7 ) )  # erro: parêntese extra no final
+( if ( 10 > 5 ) then ( 20 30 + ) else ( 40 50 + ) ) RES  # erro: RES usado fora do contexto
+( for ( 1 10 ) ( ( 2 3 + ) 4 * ) else ( 5 6 + ) )  # erro: else não permitido dentro do for
+( ( 5 6 + 7 ) 8 + )  # erro: número 7 dentro da expressão sem operador antes
+( ( 10 20 + ) ( 30 40 + ) ) 50 *  # erro: número 50 depois de duas expressões sem operador
+( if ( 10 > 5 then ( 20 30 + ) else ( 40 50 + ) )  # erro: falta parêntese após condição if
+#( for ( 1 5 ( 2 3 + ) ) )  # erro: parêntese aberto dentro do cabeçalho do for
+#( ( 10 20 + ) ( 30 40 + ) + ) RES  # erro: RES depois de expressão composta
+( 5 6 + + 7 )  # erro: operador '+' repetido sem operandos
+( ( 10 20 + ) ( 30 40 + ) ) * )  # erro: parêntese extra no final
+( 10 20 30 + + + )  # erro: operadores demais para o número de operandos
+( if ( 10 > 5 ) then ( 20 30 + ) else ( 40 50 + ) )  # expressão válida (controle de comparação)

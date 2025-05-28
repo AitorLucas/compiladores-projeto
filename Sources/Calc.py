@@ -53,7 +53,7 @@ def main():
 
     if asts:
         for i, ast in enumerate(asts, 1):
-            print(f"\n🌳 AST da linha {i}:")
+            print(f"\n• AST line {i}:")
             print(ast)
             ast.save_as_text(i)
             ast.save_as_dot(i)
