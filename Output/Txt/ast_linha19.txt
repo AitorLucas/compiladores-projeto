@@ -1,3 +1,0 @@
-└── operation: |
-    ├── number: 8
-    └── number: 2

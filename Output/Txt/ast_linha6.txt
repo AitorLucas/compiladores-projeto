@@ -1,6 +1,0 @@
-└── operation: -
-    ├── mem_op: MEM
-    │   └── number: 2
-    └── operation: *
-        ├── number: 4
-        └── number: 2

@@ -1,5 +1,0 @@
-└── operation: ^
-    ├── operation: /
-    │   ├── number: 10
-    │   └── number: 2
-    └── mem_op: MEM

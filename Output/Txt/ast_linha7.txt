@@ -1,7 +1,0 @@
-└── for: None
-    ├── var: j
-    ├── start: 0
-    ├── end: 10
-    └── operation: +
-        ├── identifier: j
-        └── number: 3

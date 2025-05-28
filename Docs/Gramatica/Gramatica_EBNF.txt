@@ -1,26 +1,39 @@
-<program>       ::= { <expression> NEWLINE }
+<program>      → <expression> NEWLINE <program> | ε
 
-<expression>    ::= "(" <expr_body> ")"
+<expression>   → ( <expr_body> )
 
-<expr_body>     ::= <rpn_expr>
-                  | <if_expr>
-                  | <for_expr>
+<expr_body>    → <if_expr>
+               | <for_expr>
+               | <rpn_expr>
+               | <mem_expr>
 
-<rpn_expr>      ::= <term> <term> <operator>
-                  | <term> MEM
-                  | <term> RES
-                  | MEM
+<rpn_expr>     →  <term> <term> <arith_op>
 
-<term>          ::= NUMBER
-                  | IDENTIFIER
-                  | <expression>
+<mem_expr>     → MEM
+               | <term> MEM
+               | <term> RES
 
-<operator>      ::= "+" | "-" | "*" | "/" | "%" | "|" | "^"
-                  | "==" | "!=" | "<" | ">" | "<=" | ">="
+<term>         → NUMBER
+               | ( <expression> )
 
-<if_expr>       ::= "if" <expression>
-                    "then" <expression>
-                    [ "else" <expression> ]
+<arith_op>     → +
+               | -
+               | *
+               | /
+               | %
+               | ^
+               | |
 
-<for_expr>      ::= "for" "(" IDENTIFIER NUMBER NUMBER ")"
-                    <expression>
+<if_expr>      → IF <cond_expr> THEN <expression> 
+               | IF <cond_expr> THEN <expression> ELSE <expression>
+
+<cond_expr>    → ( <term> <term> <comp_op> )
+
+<comp_op>      → ==
+               | !=
+               | <
+               | >
+               | <=
+               | >=
+
+<for_expr>     → FOR ( <term> <term> ) <expression>

@@ -1,7 +1,0 @@
-└── operation: -
-    ├── operation: +
-    │   ├── number: 5
-    │   └── number: 3
-    └── operation: *
-        ├── number: 2
-        └── number: 4

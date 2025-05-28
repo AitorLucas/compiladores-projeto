@@ -120,7 +120,7 @@ class Parser:
             self.add_error(str(e), pos)
             return []
 
-    def parse_expression(self, allow_identifiers=False):
+    def parse_expression(self):
         try:
             if self.current_token.type == TokenType.IF:
                 return self.parse_if_expression()
@@ -137,12 +137,10 @@ class Parser:
                     TokenType.MEM,
                     TokenType.RES,
                 ]
-                if allow_identifiers:
-                    valid_tokens.append(TokenType.IDENTIFIER)
 
                 if self.current_token.type == TokenType.PAREN_OPEN:
                     self.advance()
-                    sub_expr = self.parse_expression(allow_identifiers)
+                    sub_expr = self.parse_expression()
                     if self.current_token and self.current_token.type != TokenType.PAREN_CLOSE:
                         self.add_error("Missing closing parenthesis in nested expression", self.current_token)
                         while self.current_token and self.current_token.type != TokenType.PAREN_CLOSE:
@@ -205,7 +203,7 @@ class Parser:
             return ASTNode("error")
 
 
-    def _parse_expression(self, allow_identifiers=False):
+    def _parse_expression(self):
         """Parses individual expressions"""
         try:
             if self.current_token.type == TokenType.IF:
@@ -224,8 +222,6 @@ class Parser:
                     TokenType.MEM,
                     TokenType.RES,
                 ]
-                if allow_identifiers:
-                    valid_tokens.append(TokenType.IDENTIFIER)
                 
                 if self.current_token.type == TokenType.PAREN_OPEN:
                     inner_pos = self.current_token.position
@@ -259,8 +255,6 @@ class Parser:
                 stack = []
                 for comp in components:
                     valid_components = ['number', 'expr']
-                    if allow_identifiers:
-                        valid_components.append('identifier')
                     if comp[0] in valid_components:
                         stack.append(comp)
                     elif comp[0] in ['arithmetic_op', 'comparison_op']:
@@ -382,12 +376,6 @@ class Parser:
         # cabeçalho do for: (var start end)
         if self.current_token and self.current_token.type == TokenType.PAREN_OPEN:
             self.advance()
-            if self.current_token.type != TokenType.IDENTIFIER:
-                self.add_error("Expected variable name in for-loop", self.current_token)
-                return ASTNode("error")
-            var_node = ASTNode("var", self.current_token.value)
-            self.advance()
-
             if self.current_token.type != TokenType.NUMBER:
                 self.add_error("Expected start number in for-loop", self.current_token)
                 return ASTNode("error")
@@ -400,7 +388,7 @@ class Parser:
             end_node = ASTNode("end", self.current_token.value)
             self.advance()
 
-            for_node.children.extend([var_node, start_node, end_node])
+            for_node.children.extend([start_node, end_node])
 
             if self.current_token and self.current_token.type != TokenType.PAREN_CLOSE:
                 self.add_error("Missing closing parenthesis in for-loop header", self.current_token)
@@ -413,7 +401,7 @@ class Parser:
         # corpo do for
         if self.current_token and self.current_token.type == TokenType.PAREN_OPEN:
             self.advance()
-            body_expr = self.parse_expression(allow_identifiers=True)
+            body_expr = self.parse_expression()
             for_node.children.append(body_expr)
             if self.current_token and self.current_token.type != TokenType.PAREN_CLOSE:
                 self.add_error("Missing closing parenthesis in for-loop body", self.current_token)
@@ -451,7 +439,7 @@ class Parser:
         # Loop body block
         if self.current_token and self.current_token.type == TokenType.PAREN_OPEN:
             self.advance()
-            self._parse_expression(allow_identifiers=True)
+            self._parse_expression()
             if self.current_token and self.current_token.type != TokenType.PAREN_CLOSE:
                 self.add_error("Missing closing parenthesis in for-loop body", self.current_token)
             if self.current_token:

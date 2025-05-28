@@ -1,5 +1,0 @@
-digraph AST {
-  node0 [label="mem_op\nMEM"];
-  node1 [label="number\n10"];
-  node0 -> node1;
-}

@@ -1,3 +1,0 @@
-└── operation: %
-    ├── number: 7
-    └── number: 3

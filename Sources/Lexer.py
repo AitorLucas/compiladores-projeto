@@ -142,7 +142,7 @@ class Lexer:
                     'RES': TokenType.RES
                 }
 
-                token_type = keywords_map.get(ident_str, TokenType.IDENTIFIER) # default: Identifier
+                token_type = keywords_map.get(ident_str, TokenType.ERROR)
                 tokens.append(Token(token_type, ident_str, start_pos, self.line))
                 continue
 

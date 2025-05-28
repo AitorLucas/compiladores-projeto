@@ -13,7 +13,6 @@ class TokenType(Enum):
     PAREN_CLOSE = 'PAREN_CLOSE'         # Closing parenthesis ')'
     RES = 'RES'                         # Result reference operation
     MEM = 'MEM'                         # Memory operation
-    IDENTIFIER = 'IDENTIFIER'           # Variable identifiers
     IF = 'IF'                           # If conditional
     THEN = 'THEN'                       # Then clause
     ELSE = 'ELSE'                       # Else clause

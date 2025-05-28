@@ -1,7 +1,0 @@
-└── operation: *
-    ├── operation: +
-    │   ├── number: 3.3
-    │   └── number: 1.1
-    └── operation: -
-        ├── number: 2.2
-        └── number: 0.2

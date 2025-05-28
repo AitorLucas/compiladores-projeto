@@ -1,28 +1,31 @@
-# Conjuntos FIRST e FOLLOW - Linguagem RPN
+# FIRST Sets
 
-## FIRST Sets
+| Não-terminal   | FIRST                       |
+|:--------------:|:----------------------------|
+| `<program>`    | (                           |
+| `<expression>` | (                           |
+| `<expr_body>`  | IF, FOR, MEM, NUMBER, (     |
+| `<rpn_expr>`   | NUMBER, (                   |
+| `<mem_expr>`   | MEM, NUMBER, (              |
+| `<term>`       | NUMBER, (                   |
+| `<arith_op>`   | +, -, *, /, %, ^, \`        |
+| `<if_expr>`    | IF                          |
+| `<cond_expr>`  | (                           |
+| `<comp_op>`    | ==, !=, <, >, <=, >=        |
+| `<for_expr>`   | FOR                         |
 
-| Não-terminal   | FIRST                                   |
-|----------------|------------------------------------------|
-| `<program>`    | `(`                                      |
-| `<expression>` | `(`                                      |
-| `<expr_body>`  | `IF`, `FOR`, `MEM`, `NUMBER`, `IDENTIFIER`, `(` |
-| `<rpn_expr>`   | `MEM`, `NUMBER`, `IDENTIFIER`, `(`       |
-| `<term>`       | `NUMBER`, `IDENTIFIER`, `(`              |
-| `<operator>`   | `+`, `-`, `*`, `/`, `%`, `|`, `^`, `==`, `!=`, `<`, `>`, `<=`, `>=` |
-| `<if_expr>`    | `IF`                                     |
-| `<for_expr>`   | `FOR`                                    |
+# FOLLOW Sets
 
----
-
-## FOLLOW Sets
-
-| Não-terminal   | FOLLOW                     |
-|----------------|----------------------------|
-| `<program>`    | `EOF`                      |
-| `<expression>` | `NEWLINE`, `)`, `ELSE`     |
-| `<expr_body>`  | `)`                        |
-| `<rpn_expr>`   | `)`                        |
-| `<term>`       | `term`, `operator`, `)`    |
-| `<if_expr>`    | `)`                        |
-| `<for_expr>`   | `)`                        |
+| Não-terminal   | FOLLOW                                   |
+|:--------------:|:-----------------------------------------|
+| `<program>`    | EOF                                      |
+| `<expression>` | NEWLINE, ), ELSE                         |
+| `<expr_body>`  | )                                        |
+| `<rpn_expr>`   | )                                        |
+| `<mem_expr>`   | )                                        |
+| `<term>`       | term, arith_op, MEM, RES, ), comp_op     |
+| `<arith_op>`   | )                                        |
+| `<if_expr>`    | )                                        |
+| `<cond_expr>`  | THEN                                     |
+| `<comp_op>`    | )                                        |
+| `<for_expr>`   | )                                        |
