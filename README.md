@@ -1,6 +1,36 @@
 # Analisador Léxico e Sintático para Linguagem RPN Personalizada
 
-Este projeto implementa um analisador léxico e sintático para uma linguagem baseada em Notação Polonesa Reversa (Reverse Polish Notation - RPN), com suporte a estruturas condicionais (`if-then-else`) e de repetição (`for`). 
+Este projeto implementa um analisador léxico e sintático para uma linguagem baseada em Notação Polonesa Reversa (Reverse Polish Notation - RPN), com suporte a estruturas condicionais (`if-then-else`), de repetição (`for`) e de recuperacao de dados (`RES e MEM`). 
+
+---
+
+## 📁 Estrutura do Projeto
+
+```
+├── Docs
+│   ├── DFA
+│   │   └── *
+│   ├── FirstFollow
+│   │   ├── First_Follow.md
+│   │   └── First_Follow.txt
+│   ├── Gramatica
+│   │   └── Gramatica_EBNF.txt
+│   ├── Tabela_LL1
+│   │   ├── Tabela_LL1.md
+│   │   └── Tabela_LL1.txt
+│   └── *.pdfs
+├── Input
+│   └── *.txt
+├── Output
+│   ├── Dot
+│   │   └── *
+│   └── Txt
+│       └── *
+├── Sources
+│   └── *.py
+├── LICENSE
+└── README.md
+```
 
 ---
 
