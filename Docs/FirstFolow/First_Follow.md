@@ -1,0 +1,28 @@
+# Conjuntos FIRST e FOLLOW - Linguagem RPN
+
+## FIRST Sets
+
+| Não-terminal   | FIRST                                   |
+|----------------|------------------------------------------|
+| `<program>`    | `(`                                      |
+| `<expression>` | `(`                                      |
+| `<expr_body>`  | `IF`, `FOR`, `MEM`, `NUMBER`, `IDENTIFIER`, `(` |
+| `<rpn_expr>`   | `MEM`, `NUMBER`, `IDENTIFIER`, `(`       |
+| `<term>`       | `NUMBER`, `IDENTIFIER`, `(`              |
+| `<operator>`   | `+`, `-`, `*`, `/`, `%`, `|`, `^`, `==`, `!=`, `<`, `>`, `<=`, `>=` |
+| `<if_expr>`    | `IF`                                     |
+| `<for_expr>`   | `FOR`                                    |
+
+---
+
+## FOLLOW Sets
+
+| Não-terminal   | FOLLOW                     |
+|----------------|----------------------------|
+| `<program>`    | `EOF`                      |
+| `<expression>` | `NEWLINE`, `)`, `ELSE`     |
+| `<expr_body>`  | `)`                        |
+| `<rpn_expr>`   | `)`                        |
+| `<term>`       | `term`, `operator`, `)`    |
+| `<if_expr>`    | `)`                        |
+| `<for_expr>`   | `)`                        |

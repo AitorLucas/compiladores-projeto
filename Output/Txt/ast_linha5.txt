@@ -1,0 +1,3 @@
+└── operation: +
+    ├── mem_op: MEM
+    └── number: 8

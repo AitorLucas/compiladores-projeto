@@ -1,0 +1,13 @@
+digraph AST {
+  node0 [label="operation\n-"];
+  node1 [label="mem_op\nMEM"];
+  node0 -> node1;
+  node2 [label="number\n2"];
+  node1 -> node2;
+  node3 [label="operation\n*"];
+  node0 -> node3;
+  node4 [label="number\n4"];
+  node3 -> node4;
+  node5 [label="number\n2"];
+  node3 -> node5;
+}

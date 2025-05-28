@@ -1,0 +1,26 @@
+<program>       ::= { <expression> NEWLINE }
+
+<expression>    ::= "(" <expr_body> ")"
+
+<expr_body>     ::= <rpn_expr>
+                  | <if_expr>
+                  | <for_expr>
+
+<rpn_expr>      ::= <term> <term> <operator>
+                  | <term> MEM
+                  | <term> RES
+                  | MEM
+
+<term>          ::= NUMBER
+                  | IDENTIFIER
+                  | <expression>
+
+<operator>      ::= "+" | "-" | "*" | "/" | "%" | "|" | "^"
+                  | "==" | "!=" | "<" | ">" | "<=" | ">="
+
+<if_expr>       ::= "if" <expression>
+                    "then" <expression>
+                    [ "else" <expression> ]
+
+<for_expr>      ::= "for" "(" IDENTIFIER NUMBER NUMBER ")"
+                    <expression>

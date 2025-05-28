@@ -1,0 +1,5 @@
+└── operation: +
+    ├── number: 5
+    └── operation: *
+        ├── number: 3
+        └── number: 2

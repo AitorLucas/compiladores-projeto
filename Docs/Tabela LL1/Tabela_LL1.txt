@@ -1,0 +1,48 @@
+Tabela LL(1) - Analisador Sintático LL(1)
+
+1. <program>
+  Lookahead: (       -> <expression> NEWLINE <program>
+  Lookahead: EOF     -> ε
+
+2. <expression>
+  Lookahead: (       -> ( <expr_body> )
+
+3. <expr_body>
+  Lookahead: IF         -> <if_expr>
+  Lookahead: FOR        -> <for_expr>
+  Lookahead: MEM        -> <rpn_expr>
+  Lookahead: NUMBER     -> <rpn_expr>
+  Lookahead: IDENTIFIER -> <rpn_expr>
+  Lookahead: (          -> <rpn_expr>
+
+4. <rpn_expr>
+  Lookahead: MEM        -> MEM
+  Lookahead: NUMBER     -> <term> <term> <operator>
+  Lookahead: IDENTIFIER -> <term> <term> <operator>
+  Lookahead: (          -> <term> <term> <operator>
+
+5. <term>
+  Lookahead: NUMBER     -> NUMBER
+  Lookahead: IDENTIFIER -> IDENTIFIER
+  Lookahead: (          -> <expression>
+
+6. <operator>
+  Lookahead: +   -> +
+  Lookahead: -   -> -
+  Lookahead: *   -> *
+  Lookahead: /   -> /
+  Lookahead: %   -> %
+  Lookahead: |   -> |
+  Lookahead: ^   -> ^
+  Lookahead: ==  -> ==
+  Lookahead: !=  -> !=
+  Lookahead: <   -> <
+  Lookahead: >   -> >
+  Lookahead: <=  -> <=
+  Lookahead: >=  -> >=
+
+7. <if_expr>
+  Lookahead: IF -> IF <expression> THEN <expression> [ELSE <expression>]
+
+8. <for_expr>
+  Lookahead: FOR -> FOR ( IDENTIFIER NUMBER NUMBER ) <expression>

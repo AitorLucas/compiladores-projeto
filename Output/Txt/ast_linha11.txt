@@ -1,0 +1,11 @@
+└── operation: +
+    ├── operation: +
+    │   ├── number: 2
+    │   └── number: 2
+    └── operation: *
+        ├── operation: +
+        │   ├── number: 3
+        │   └── number: 3
+        └── operation: +
+            ├── number: 4
+            └── number: 4
